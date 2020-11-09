@@ -63,3 +63,12 @@ class(four_season_factor)
 temperatures <- c('warm', 'hot', 'cool')
 temperatures_factors <- factor(temperatures , ordered = TRUE, levels = c('cool', 'warm', 'hot'))
 temperatures_factors
+
+#dataframe
+teams_name <- c('Chicago Bulls', 'Golden State Warriors')
+teams_wins <- c(72, 73)
+teams_losses <- c(10, 9)
+teams_is_champion <- c(TRUE, FALSE)
+teams_season <- c('1995-96', '2015-16')
+great_nba_teams <- data.frame(team_name, teams_wins, teams_losses, teams_is_champion, teams_season)
+View(great_nba_teams)
