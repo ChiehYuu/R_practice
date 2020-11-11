@@ -74,3 +74,63 @@ great_nba_teams <- data.frame(team_name, teams_wins, teams_losses, teams_is_cham
 View(great_nba_teams)
 str(great_nba_teams)
 print(great_nba_teams)
+great_nba_teams[1, 1]
+great_nba_teams[1, ]
+great_nba_teams[, 1]
+great_nba_teams[, 5]
+great_nba_teams$team_name
+great_nba_teams$teams_is_champion
+
+#matrix
+my_mat_1 <- matrix(1:6, nrow= 2)
+my_mat_1
+class(my_mat_1)
+my_mat_2 <- matrix(1:6, nrow= 2 ,byrow = TRUE)
+my_mat_2
+my_mat_1[2, 3]
+my_mat_1[2, ]
+my_mat_1[, 3]
+my_mat_1[my_mat_1 < 6 & my_mat_1 > 1]
+my_mat <- matrix(c(1, 2, TRUE, FALSE, 3, 4), nrow = 2)
+
+#array
+my_arr <- array(1:20, dim = c(2, 2, 5))
+class(my_arr)
+my_arr
+
+my_arr_1 <- array(1:20, dim = c(2, 2, 5))
+my_arr_1[, , 1]
+my_arr_1[, , 2]
+my_arr_1[, , 3]
+my_arr_1[, , 4]
+my_arr_1[, , 5]
+my_arr_1[1, 1, 2]
+my_arr_1[1, , 2]
+my_arr_1[, 2, 2]
+
+#exam
+speed_char <- c('slow', 'fast')
+speed_factor <- factor(speed_char, ordered = TRUE, levels = c('fast', 'slow'))
+
+my_mat_ex <- matrix(1:9 , nrow= 3)
+my_mat_ex[2, 3]
+filter <- my_mat_ex %% 2 == 1
+my_mat_ex[filter]
+
+team_name_ex <- c('Chicago Bulls', 'Golden State Warriors')
+wins_ex <- c(72, 73)
+losses_ex <- c(10, 9)
+is_champion_ex <- c(TRUE, FALSE)
+season_ex <- c('1995-96', '2015-16')
+great_nba_teams_ex <- data.frame(team_name_ex, wins_ex, losses_ex, is_champion_ex, season_ex, stringsAsFactors =  FALSE)
+great_nba_teams_ex$is_champion_ex
+great_nba_teams_ex[, 'is_champion_ex']
+
+title <- 'Worst NBA Teams'
+teams_worst <- c('Charlotte Bobcats', 'Philadelphia 76ers')
+wins_worst <- c(7, 9)
+losses_worst <- c(59, 73)
+worst_nba_team <- list(title, teams_worst, wins_worst, losses_worst)
+worst_nba_team[[3]]
+worst_nba_teams_1 <- list(title = title, teams = teams_worst,win =  wins_worst,loss =  losses_worst)
+worst_nba_teams_1$teams
