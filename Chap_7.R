@@ -58,3 +58,26 @@ shaq <- bmi_calculation(216, 147)
 shaq$bmi
 shaq$bmiLabel
 
+#clean function
+messy_data <- data.frame(c(1, 2, 3, 4, NA), c(1, 2, 3, NA, 5), c(1, 2, NA, 4, 5))
+names(messy_data) <- c('var_1', 'var_2', 'var_3')
+messy_data
+
+clean_data <- function(df, impute_value){
+  n_rows <- nrow(df)
+  na_sum <- rep(NA, times = n_rows)
+  for (i in 1:n_rows) {
+    na_sum[i] <- sum(is.na(df[i, ]))
+    df[i, ][is.na(df[i, ])] <- impute_value
+  }
+  complete_case <- df[as.logical(!na_sum), ]
+  imputed_data <- df
+  df_list <- list(
+    complete_case = complete_case,
+    imputed_data = imputed_data
+  )
+  return(df_list)
+}
+cleaned_data <- clean_data(messy_data, impute_value = 999)
+cleaned_data$complete_cases
+cleaned_data$imputed_data
