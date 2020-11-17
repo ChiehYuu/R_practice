@@ -81,3 +81,17 @@ clean_data <- function(df, impute_value){
 cleaned_data <- clean_data(messy_data, impute_value = 999)
 cleaned_data$complete_cases
 cleaned_data$imputed_data
+
+#local / global var.
+get_bmi <- function(height, weight) {
+  height <- height / 100 #local
+  bmi <- weight / height**2 #local
+  return(bmi)
+}
+shaq_height <- 216 #global
+shaq_weight <- 147 #global
+shaq_bmi <- get_bmi(shaq_height, shaq_weight)
+shaq_bmi
+bmi #local
+
+
