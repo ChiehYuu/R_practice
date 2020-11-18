@@ -94,4 +94,16 @@ shaq_bmi <- get_bmi(shaq_height, shaq_weight)
 shaq_bmi
 bmi #local
 
+#try error
+tryCatch(
+  {
+    #code
+  },
+  warning = function(w){
+    #code to do 
+  },
+  error = function(w){
+    #code to do
+  }
+)
 
