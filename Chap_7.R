@@ -107,3 +107,101 @@ tryCatch(
   }
 )
 
+#without exception
+custom_as_numeric <- function(x) {
+  return(as.numeric(x))
+}
+custom_as_numeric(TRUE)
+custom_as_numeric('TRUE')
+
+#with exception
+custom_as_numeric <- function(x) {
+  tryCatch({
+    return(as.numeric(x))
+  },
+  warning = function(w) {
+    return('請輸入邏輯變數')
+  }
+  )
+}
+custom_as_numeric(TRUE)
+custom_as_numeric('TRUE')
+
+#ex.1 
+custom_squared <- function(x) {
+  tryCatch({
+    return(x ** 2)
+  },
+  error = function(e) {
+    return('請輸入一個數值')
+  }
+  )
+}
+custom_squared(-3)
+custom_squared('-3')
+
+#ex.2
+custom_as_numeric <- function(x) {
+  tryCatch(
+    {
+      return(as.numeric(x))
+    },
+    warning = function(w) {
+      return('請不要輸入文字')
+    },
+    error = function(e){
+      return('找不到物件')
+    }
+  )
+}
+custom_as_numeric(TRUE)
+custom_as_numeric('TRUE')
+custom_as_numeric(True)
+
+#ex.3
+custom_as_numeric <- function(x) {
+  tryCatch(
+    {
+      return(as.numeric(x))
+    },
+    warning = function(w) {
+      x <- toupper(x)
+      x <- as.logical(x)
+      return(as.numeric(x))
+    },
+    error = function(e) {
+      return('找不到物件')
+    }
+  )
+}
+custom_as_numeric(TRUE)
+custom_as_numeric('TRUE')
+custom_as_numeric('True')
+custom_as_numeric('true')
+custom_as_numeric(True)
+custom_as_numeric(true)
+
+#exam.1
+my_factorial <- function(n){
+  n <- as.integer(n)
+  ans <- 1
+  for (i in 1:n){
+    ans <- ans * i
+  }
+  return(ans)
+}
+my_factorial(5)
+
+#exam.2
+my_mean <- function(x) {
+  my_sum <- 0
+  my_length <- 0
+  for (i in x) {
+    my_sum <- my_sum + i
+    my_length <- my_length + 1
+  }
+  return(my_sum / my_length)
+}
+
+my_mean(1:10)
+mean(1:10)
