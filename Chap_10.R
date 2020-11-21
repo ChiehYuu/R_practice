@@ -49,3 +49,38 @@ View(chicago_bulls)
 #remove frame
 chicago_bulls$is_starting <- NULL
 View(chicago_bulls)
+
+#rblind()
+front_courts <- chicago_bulls[chicago_bulls$Pos %in% c('SF', 'PF', 'C'), ]
+back_courts <- chicago_bulls[chicago_bulls$Pos %in% c('PG', 'SG'), ]
+back_courts
+front_courts
+View(rbind(back_courts, front_courts))
+
+#- remove
+front_courts_rows <- as.numeric(row.names(front_courts))
+front_courts_rows
+back_courts_1 <- chicago_bulls[-front_courts_rows, ]
+back_courts_1
+
+#change var
+colnames(chicago_bulls)
+col_name <- gsub(tolower(colnames(chicago_bulls)), pattern = '\\.', replacement = '_')
+colnames(chicago_bulls) <- col_name
+colnames(chicago_bulls)
+
+#排序
+order_cols <- sort(colnames(chicago_bulls))
+chicago_bulls_sort_cols <- chicago_bulls[, order_cols]
+chicago_bulls_sort_cols
+
+order_rows <- order(chicago_bulls$Pos)
+order_rows
+chicago_bulls_sort_rows <- chicago_bulls[order_rows, ]
+chicago_bulls_sort_rows
+
+#exam
+favorite_bands_df <- data.frame(band = c('Beyond', 'Beatles'), lead_vocal = c('Wong Ka Kui', 'John Lennon'), formed = c(1983, 1960))
+View(favorite_bands_df)
+favorite_bands_df$build_time <- c(2020, 2020)-favorite_bands_df$formed
+View(favorite_bands_df)
