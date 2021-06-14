@@ -1,4 +1,5 @@
 # basic
+##20210613
 #-------------------
 ##arithmetic
 7+9
@@ -12,7 +13,6 @@ class(apple)
 class(TRUE)
 class('Time')
 #-------------------
-
 #vector
 ##create
 my_time <- c(1, 2, 3)
@@ -27,3 +27,7 @@ my_time[1:2]
 ##logic
 selection <- my_time > 2
 my_time[selection]
+
+#-------------------
+#matrix
+##20210614
